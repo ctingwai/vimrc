@@ -1,0 +1,12 @@
+[submodule "my_plugins/editorconfig-vim"]
+	path = my_plugins/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "my_plugins/vim-html-template-literals"]
+	path = my_plugins/vim-html-template-literals
+	url = https://github.com/jonsmithers/vim-html-template-literals.git
+[submodule "my_plugins/vim-javascript"]
+	path = my_plugins/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "my_plugins/awesome-vim-colorschemes"]
+	path = my_plugins/awesome-vim-colorschemes
+	url = https://github.com/rafi/awesome-vim-colorschemes.git
