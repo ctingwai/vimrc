@@ -56,9 +56,10 @@ function! ale#lsp#response#ReadDiagnostics(response) abort
         endif
 
         if has_key(l:diagnostic, 'relatedInformation')
+        \ && l:diagnostic.relatedInformation isnot v:null
             let l:related = deepcopy(l:diagnostic.relatedInformation)
             call map(l:related, {key, val ->
-            \   ale#path#FromURI(val.location.uri) .
+            \   ale#util#ToResource(val.location.uri) .
             \   ':' . (val.location.range.start.line + 1) .
             \   ':' . (val.location.range.start.character + 1) .
             \   ":\n\t" . val.message
@@ -90,7 +91,7 @@ function! ale#lsp#response#ReadTSServerDiagnostics(response) abort
         \   'lnum': l:diagnostic.start.line,
         \   'col': l:diagnostic.start.offset,
         \   'end_lnum': l:diagnostic.end.line,
-        \   'end_col': l:diagnostic.end.offset,
+        \   'end_col': l:diagnostic.end.offset - 1,
         \}
 
         if has_key(l:diagnostic, 'code')
